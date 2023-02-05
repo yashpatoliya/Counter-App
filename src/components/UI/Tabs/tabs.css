@@ -1,0 +1,66 @@
+.bloc-tabs {
+    display: flex;
+}
+
+.tabs {
+    padding: 15px;
+    text-align: center;
+    width: 50%;
+    cursor: pointer;
+    box-sizing: content-box;
+    position: relative;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+
+}
+
+.active-tabs {
+    color: #76FF36;
+    border-bottom-color:#76FF36;
+}
+
+.active-tabs::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 5px;
+}
+
+button {
+    border: none;
+}
+
+.content-tabs {
+    /* padding: 15px 0; */
+    flex-grow: 1;
+}
+
+.content {
+    /* padding: 20px 0; */
+    display: none;
+}
+
+.content h2 {
+    padding: 0px 0 5px 0px;
+}
+
+.content hr {
+    width: 100px;
+    height: 2px;
+    margin-bottom: 5px;
+}
+
+.content p {
+    width: 100%;
+    height: 100%;
+}
+
+.active-content {
+    display: block;
+}

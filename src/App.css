@@ -1,0 +1,15 @@
+.container{
+  max-width: 360px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.45);
+  background-blend-mode: multiply;
+  background-image: url(../public/assets/background.png);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+.container main {
+  padding: 30px 15px;
+}
