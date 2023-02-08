@@ -1,0 +1,23 @@
+.imgIcon{
+    width: 70px;
+    margin: 0 auto;
+}
+.imgIcon img{
+    display: block;
+    margin: 0 auto;
+}
+.quizPlay h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 0;
+}
+.quizPlay h6{
+   padding: 4px 0;
+   font-weight: 300;
+}
+.quizPlay h5{
+    font-size: 12px;
+    font-weight: 300;
+    padding: 3px 0 10px;
+}

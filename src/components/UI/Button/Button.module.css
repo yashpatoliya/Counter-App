@@ -1,0 +1,67 @@
+.buttonOutline{
+    background-color: transparent;
+    color: #E9711F;
+    border: 1px solid #E9711F;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.5s ease all;
+    margin: 5px 0;
+}
+
+.buttonOutline:hover{
+    background-color: #E9711F;
+    color: white;
+}
+
+.buttonFilled{
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.5s ease all;
+    font-weight: 700;
+    margin: 5px 0;
+}
+
+.buttonFilled:hover{
+    background-color: white;
+    color: rgb(33, 15, 15);
+}
+
+.buttonOrange{
+    width: 100%;
+    background-color: #E9711F;
+    color: white;
+    border: 1px solid #E9711F;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.5s ease all;
+    margin: 5px 0;
+}
+
+.buttonOrange:hover{
+    background-color: transparent;
+    border-color: #E9711F;
+    color: #E9711F;
+}
+
+.button{
+    width: 100%;
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: 0.5s ease all;
+    margin: 15px 0;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button img{
+    margin: 0 10px ;
+}

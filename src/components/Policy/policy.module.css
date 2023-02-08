@@ -1,0 +1,59 @@
+.title {
+    padding: 5px 0 0;
+}
+
+.miniTitle {
+    padding: 0px 0 10px;
+    font-weight: 400;
+}
+
+.miniTitle span {
+    color: #FCFF00;
+    margin: 0 5px;
+}
+
+.discription {
+    font-size: 12px;
+    font-weight: 300;
+    padding: 0 10px 10px;
+}
+
+.ul {
+    list-style: none;
+    /* padding: 20px 0; */
+    padding: 20px 0 20px 20px;
+}
+
+.ul li {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.ul li::before {
+    content: "\2022";
+    color: #FCFF00;
+    font-size: 20px;
+    -webkit-text-stroke: 1px #FCFF00;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.logo {
+    display: block;
+    margin: 20px auto 0;
+}
+
+.logodiscription {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: 13px;
+}
+
+.logodiscription img {
+    margin: 0 5px;
+}

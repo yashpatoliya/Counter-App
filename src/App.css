@@ -1,5 +1,6 @@
 .container{
   max-width: 360px;
+  min-height: 100%;
   margin: 0 auto;
   background: rgba(0, 0, 0, 0.45);
   background-blend-mode: multiply;

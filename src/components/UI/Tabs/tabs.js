@@ -58,6 +58,7 @@ const Tabs = () => {
                         QUIZ.map((item) =>
                             <QuizCard
                                 key={item.id}
+                                id={item.id}
                                 entry={item.entry}
                                 live={item.live}
                                 img={item.img}
