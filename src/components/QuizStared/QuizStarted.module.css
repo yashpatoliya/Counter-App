@@ -1,0 +1,69 @@
+.quiz{
+    padding: 20px 0;
+}
+.book_image{
+    width: fit-content;
+    margin: 0 auto; 
+    display: block;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 5px;
+ }
+  .title{
+     margin-top: 10px;
+     color: #fff;
+     text-align: center;
+ }
+ .circle{
+    /* margin-top: 10px; */
+    background-color: #0c0137e8;
+    height: 50px;
+    width: 50px;
+    border: 2px solid yellow;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+.circle{
+    color: #fff;
+    text-align: center;
+    font-size: 22 px;
+    padding: 10px 2px;
+    font-weight: 800;
+    word-spacing: 2px;
+    line-height: 12px;
+}
+.circle span{
+    font-size: 9px;
+    font-weight: 400;
+    /* word-spacing: 1px; */
+}
+.question{
+    color: #fff;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.score{
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    word-spacing: 2px;
+    /* letter-spacing: 2px; */
+}
+.box_2{
+    width: 100%;
+    background-color: #fff;
+}
+.box_2 p{
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}

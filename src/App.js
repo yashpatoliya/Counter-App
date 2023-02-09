@@ -10,6 +10,7 @@ import QuizPlay from './components/QuizPlay/QuizPlay';
 import QuizStart from './components/QuizStart/QuizStart';
 import QuizRules from './components/QuizRules/QuizRules';
 import SideRoot from './components/pages/SideRoot';
+import QuizStarted from './components/QuizStared/QuizStarted';
 
 const router = createBrowserRouter([
   {
@@ -51,8 +52,13 @@ const router = createBrowserRouter([
       {
         index:true,
         element:<QuizStart/>
-      }
+      },
+      
     ]
+  },
+  {
+    path:'/quiz/:quizId/play',
+    element:<QuizStarted/>
   },
   {
     path:'/login',

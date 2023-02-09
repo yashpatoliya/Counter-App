@@ -7,6 +7,7 @@ import MainNavigation from "../MainNavigation/MainNavigation";
 import { Link } from "react-router-dom";
 
 const QuizStart = () => {
+  const {quizId} = useParams();
   return (
     <>
     <MainNavigation start='true' title='English Grammar'/>
@@ -28,7 +29,7 @@ const QuizStart = () => {
               questions as you can.
             </h5>
             <h5>Join and save the coins you win! Its free & safe!</h5>
-            <ButtonOrange>Start Quiz</ButtonOrange>
+            <Link to={`/quiz/${quizId}/play`}><ButtonOrange>Start Quiz</ButtonOrange></Link>
           </div>
         </Card>
         <Ads />

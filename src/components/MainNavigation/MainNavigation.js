@@ -17,7 +17,53 @@ function SideMenu() {
         <img src="assets/toggle.png" />
       </Button>
 
-      <Offcanvas className={classes.offcanvas} show={show} onHide={handleClose}>
+      <div className={classes.bgbox} show={show}>
+          <div className={classes.profile}>
+        <button onClick={handleClose}>
+          <img
+            src="aessets/Close_round.svg"
+            className={classes.close}
+            alt="Images"
+          />
+        </button>
+          <img src="aessets/Ellipse 4.svg" alt="Images" />
+          <p className={classes.welcome}>Welcome!</p>
+          <p className={classes.play}>play Quiz & earn coins</p>
+        </div>
+        <div className={classes.boxWhite}>
+          <ul>
+            <li className="d-flex">
+              <img src="aessets/Frame.svg" alt="Images" />
+              <p>Quiz Rules</p>
+            </li>
+            <li className="d-flex">
+              <img src="aessets/Frame 18.svg" alt="Images" />
+              <p>Coins History</p>
+            </li>
+            <li className="d-flex">
+              <img src="aessets/Frame 19.svg" alt="Images" />
+              <p>Partner US</p>
+            </li>
+            <li className="d-flex">
+              <img src="aessets/Frame 13.svg" alt="Images" />
+              <p>Terms and Conditions</p>
+            </li>
+            <li className="d-flex">
+              <img src="aessets/Frame1.svg" alt="Images" />
+              <p>Privacy Policy</p>
+            </li>
+            <li className="d-flex">
+              <img src="aessets/Frame 16.svg" alt="Images" />
+              <p>Contact Us</p>{" "}
+            </li>
+            <li className="d-flex">
+              <img src="aessets/logout.svg" alt="Images" />
+              <p>Log Out</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* <Offcanvas className={classes.offcanvas} show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton="">
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header>
@@ -25,13 +71,13 @@ function SideMenu() {
           Some text as placeholder. In real life you can have the elements you
           have chosen. Like, text, images, lists, etc.
         </Offcanvas.Body>
-      </Offcanvas>
+      </Offcanvas> */}
     </>
   );
 }
 const BackButton = () => {
   return (
-    <Link to='..'>
+    <Link to="..">
       <Button className={classes.toggle}>
         <img src="assets/back.svg" />
       </Button>
