@@ -11,16 +11,17 @@ const QuizStarted = (props) => {
 
   const timer = setInterval(() => {
     if(seconds===0){
-        alert('finish')
-        
-        props.history.push('/')
+        alert('finish');
+        window.location.assign('/')
+
+        // props.history.push('/')
     }else{
         setSeconds(seconds - 1);
     }
   }, 1000);
   if(seconds == 0){
+    window.location.assign('/');
     clearInterval(timer)
-    return Router.push('/');
   }
   
 

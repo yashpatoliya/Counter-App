@@ -1,7 +1,6 @@
 // import toggle from './assets/toggle.png';
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
-import Offcanvas from "react-bootstrap/Offcanvas";
 import classes from "./MainNavigation.module.css";
 import { Link } from "react-router-dom";
 
@@ -17,61 +16,64 @@ function SideMenu() {
         <img src="assets/toggle.png" />
       </Button>
 
-      <div className={classes.bgbox} show={show}>
-          <div className={classes.profile}>
-        <button onClick={handleClose}>
-          <img
-            src="aessets/Close_round.svg"
-            className={classes.close}
-            alt="Images"
-          />
-        </button>
-          <img src="aessets/Ellipse 4.svg" alt="Images" />
-          <p className={classes.welcome}>Welcome!</p>
-          <p className={classes.play}>play Quiz & earn coins</p>
+      {show && (
+        <div className={classes.bgbox}>
+          <div className={classes.side}>
+            <div className={classes.profile}>
+              <button onClick={handleClose} className={classes.close}>
+                <img src="assets/toggle.png" alt="Images" />
+              </button>
+              <img
+                src="assets/Ellipse 4.svg"
+                alt="Images"
+                className={classes.profileImg}
+              />
+              <p className={classes.welcome}>Welcome!</p>
+              <p className={classes.play}>play Quiz & earn coins</p>
+            </div>
+            <div className={classes.boxWhite}>
+              <ul>
+                <li>
+                  <Link to="/side/quiz-rules">
+                    <img src="assets/Frame.svg" alt="Images" /> Quiz Rules
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/side/history">
+                    <img src="assets/Frame.svg" alt="Images" /> Coins History
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/side/partnerus">
+                    <img src="assets/Frame.svg" alt="Images" /> Partner US
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/side/terms">
+                    <img src="assets/Frame.svg" alt="Images" /> Terms and
+                    Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/side/policy">
+                    <img src="assets/Frame.svg" alt="Images" /> Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/side/contact">
+                    <img src="assets/Frame.svg" alt="Images" /> Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/login">
+                    <img src="assets/Frame.svg" alt="Images" /> Login
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div className={classes.boxWhite}>
-          <ul>
-            <li className="d-flex">
-              <img src="aessets/Frame.svg" alt="Images" />
-              <p>Quiz Rules</p>
-            </li>
-            <li className="d-flex">
-              <img src="aessets/Frame 18.svg" alt="Images" />
-              <p>Coins History</p>
-            </li>
-            <li className="d-flex">
-              <img src="aessets/Frame 19.svg" alt="Images" />
-              <p>Partner US</p>
-            </li>
-            <li className="d-flex">
-              <img src="aessets/Frame 13.svg" alt="Images" />
-              <p>Terms and Conditions</p>
-            </li>
-            <li className="d-flex">
-              <img src="aessets/Frame1.svg" alt="Images" />
-              <p>Privacy Policy</p>
-            </li>
-            <li className="d-flex">
-              <img src="aessets/Frame 16.svg" alt="Images" />
-              <p>Contact Us</p>{" "}
-            </li>
-            <li className="d-flex">
-              <img src="aessets/logout.svg" alt="Images" />
-              <p>Log Out</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-      {/* <Offcanvas className={classes.offcanvas} show={show} onHide={handleClose}>
-        <Offcanvas.Header closeButton="">
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
-        </Offcanvas.Body>
-      </Offcanvas> */}
+      )}
     </>
   );
 }

@@ -40,9 +40,29 @@ const router = createBrowserRouter([
     element: <SideRoot/>,
     children: [
       {
-        path: '/side/quiz-rules',
+        path: 'quiz-rules',
         element : <QuizRules/>
-      }
+      },
+      {
+        path: 'history',
+        element : <Policy/>
+      },
+      {
+        path: 'partnerus',
+        element : <Policy/>
+      },
+      {
+        path: 'terms',
+        element : <Policy/>
+      },
+      {
+        path: 'policy',
+        element : <Policy/>
+      },
+      {
+        path: 'contact',
+        element : <Policy/>
+      },
     ]
   },
   {
@@ -70,10 +90,6 @@ const router = createBrowserRouter([
       }
     ]
   },
-  {
-    path: '/policy',
-    element: <Policy/>
-  }
 ])
 
 function App() {

@@ -1,9 +1,8 @@
 import { Outlet } from "react-router-dom";
-
 const QuizRoot = () => {
   return (
     <>
-      <Outlet />
+        <Outlet />
     </>
   );
 };

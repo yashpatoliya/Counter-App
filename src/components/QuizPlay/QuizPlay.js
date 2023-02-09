@@ -15,7 +15,7 @@ const QuizPlay = () => {
       <main>
         <Card className={classes.quizPlay}>
           <div className={classes.imgIcon}>
-            <img src="assets/Card-icon.svg" alt="Card Image" />
+            <img src="assets/cardicon.svg" alt="Card Image" />
           </div>
           <div className={classes.quizPlay}>
             <h6>quizId : {quizId}</h6>

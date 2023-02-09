@@ -1,14 +1,13 @@
 import MainNavigation from "../MainNavigation/MainNavigation";
 import { Outlet } from "react-router-dom";
-
 const SideRoot = (props) => {
-    console.log(props)
+  console.log(props);
   return (
     <>
-      <MainNavigation start={true} />
-      <main>
-        <Outlet />
-      </main>
+        <MainNavigation start={true} />
+        <main>
+          <Outlet />
+        </main>
     </>
   );
 };
