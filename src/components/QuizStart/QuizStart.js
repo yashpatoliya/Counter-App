@@ -14,15 +14,15 @@ const QuizStart = () => {
       <main>
         <Card className={classes.quizPlay}>
           <div className={classes.imgIcon}>
-            <img src="assets/Card-icon.svg" alt="Card Image" />
+            <img src="../assets/Card-icon.svg" alt="Card Image" />
           </div>
           <div className={classes.quizPlay}>
             <h6>English Grammar</h6>
             <h3>
-              Play and Win 200,000 <img src="assets/coin.png" alt="coin" />
+              Play and Win 200,000 <img src="../assets/coin.png" alt="coin" />
             </h3>
             <h6>
-              Entry : 100 <img src="assets/coin.png" alt="coin" />
+              Entry : 100 <img src="../assets/coin.png" alt="coin" />
             </h6>
             <h5>
               You've got 60 seconds to answer all questions. Answer many

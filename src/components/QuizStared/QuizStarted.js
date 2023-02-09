@@ -28,7 +28,7 @@ const QuizStarted = (props) => {
   return (
     <div className={classes.quiz}>
       <div className={classes.book_image}>
-        <img src="assets/Card-icon.svg" alt="image" />
+        <img src="../assets/Card-icon.svg" alt="image" />
       </div>
       <p className={classes.title}>English Grammar</p>
       <Card>

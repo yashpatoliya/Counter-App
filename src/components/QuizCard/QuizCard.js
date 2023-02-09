@@ -26,7 +26,7 @@ const QuizCard = (props) => {
       <div className={classes.content}>
         <h5>{props.quiz}</h5>
         <h4>
-          {props.title} <img src="assets/coin.png" alt="coin" />
+          {props.title} <img src="../assets/coin.png" alt="coin" />
         </h4>
         <small>Winner announcement: {props.announce}</small>
       </div>

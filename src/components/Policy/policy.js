@@ -7,7 +7,7 @@ const Policy = () => {
     <main>
       <Ads />
       <Card>
-        <img src="assets/coins-lots.png" />
+        <img src="../assets/coins-lots.png" />
         <h2 className={classes.title}>Well Played!</h2>
         <h3 className={classes.miniTitle}>
           You have got <span> 200 coins</span>
@@ -30,7 +30,7 @@ const Policy = () => {
       </ul>
       <img src="assets/logo.png" className={classes.logo} />
       <h4 className={classes.logodiscription}>
-        Play Quizzes and win <img src="assets/india.png" />
+        Play Quizzes and win <img src="../assets/india.png" />
       </h4>
     </main>
   );

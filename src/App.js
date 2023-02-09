@@ -11,6 +11,10 @@ import QuizStart from './components/QuizStart/QuizStart';
 import QuizRules from './components/QuizRules/QuizRules';
 import SideRoot from './components/pages/SideRoot';
 import QuizStarted from './components/QuizStared/QuizStarted';
+import History from './components/History/History';
+import PartnerUs from './components/PartnerUs/PartnerUs';
+import Terms from './components/Terms/Terms';
+import Contact from './components/Contact/Contact';
 
 const router = createBrowserRouter([
   {
@@ -45,15 +49,15 @@ const router = createBrowserRouter([
       },
       {
         path: 'history',
-        element : <Policy/>
+        element : <History/>
       },
       {
         path: 'partnerus',
-        element : <Policy/>
+        element : <PartnerUs/>
       },
       {
         path: 'terms',
-        element : <Policy/>
+        element : <Terms/>
       },
       {
         path: 'policy',
@@ -61,7 +65,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'contact',
-        element : <Policy/>
+        element : <Contact/>
       },
     ]
   },

@@ -3,16 +3,16 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import classes from "./MainNavigation.module.css";
 import { Link } from "react-router-dom";
+import assets from '../../assets';
 
 function SideMenu() {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const toggle = () => setShow(!show);
 
   return (
     <>
-      <Button className={classes.toggle} onClick={handleShow}>
+      <Button className={classes.toggle} onClick={toggle}>
         <img src="assets/toggle.png" />
       </Button>
 
@@ -20,7 +20,7 @@ function SideMenu() {
         <div className={classes.bgbox}>
           <div className={classes.side}>
             <div className={classes.profile}>
-              <button onClick={handleClose} className={classes.close}>
+              <button onClick={toggle} className={classes.close}>
                 <img src="assets/toggle.png" alt="Images" />
               </button>
               <img
@@ -80,7 +80,7 @@ function SideMenu() {
 const BackButton = () => {
   return (
     <Link to="..">
-      <Button className={classes.toggle}>
+      <Button className={classes.toggle} >
         <img src="assets/back.svg" />
       </Button>
     </Link>
