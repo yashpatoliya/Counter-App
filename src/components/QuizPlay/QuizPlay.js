@@ -4,15 +4,13 @@ import { ButtonOrange, ButtonOutline } from "../UI/Button/Button";
 import classes from "./QuizPlay.module.css";
 import Ads from "../UI/Ads/Ads";
 import { Link } from "react-router-dom";
-import MainNavigation from "../MainNavigation/MainNavigation";
 
 const QuizPlay = () => {
   const {quizId} = useParams();
 
   return (
     <>
-      {/* <MainNavigation /> */}
-      <main>
+   
         <Card className={classes.quizPlay}>
           <div className={classes.imgIcon}>
             <img src="../assets/cardicon.svg" alt="Card Image" />
@@ -37,7 +35,7 @@ const QuizPlay = () => {
           </div>
         </Card>
         <Ads />
-      </main>
+     {/* <></> */}
     </>
   );
 };

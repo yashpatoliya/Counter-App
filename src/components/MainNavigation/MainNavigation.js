@@ -1,19 +1,19 @@
-// import toggle from './assets/toggle.png';
+import { useSelector } from "react-redux";
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import classes from "./MainNavigation.module.css";
 import { Link } from "react-router-dom";
-import assets from '../../assets';
 
-function SideMenu() {
+function SideMenu(props) {
   const [show, setShow] = useState(false);
-
   const toggle = () => setShow(!show);
+
+  
 
   return (
     <>
       <Button className={classes.toggle} onClick={toggle}>
-        <img src="assets/toggle.png" />
+        <img src="../assets/toggle.png" />
       </Button>
 
       {show && (
@@ -21,10 +21,10 @@ function SideMenu() {
           <div className={classes.side}>
             <div className={classes.profile}>
               <button onClick={toggle} className={classes.close}>
-                <img src="assets/toggle.png" alt="Images" />
+                <img src="../assets/toggle.png" alt="Images" />
               </button>
               <img
-                src="assets/Ellipse 4.svg"
+                src="../assets/Ellipse 4.svg"
                 alt="Images"
                 className={classes.profileImg}
               />
@@ -35,38 +35,39 @@ function SideMenu() {
               <ul>
                 <li>
                   <Link to="/side/quiz-rules">
-                    <img src="assets/Frame.svg" alt="Images" /> Quiz Rules
+                    <img src="../assets/Frame.svg" alt="Images" /> Quiz Rules
                   </Link>
                 </li>
                 <li>
                   <Link to="/side/history">
-                    <img src="assets/Frame.svg" alt="Images" /> Coins History
+                    <img src="../assets/Frame.svg" alt="Images" /> Coins History
                   </Link>
                 </li>
                 <li>
                   <Link to="/side/partnerus">
-                    <img src="assets/Frame.svg" alt="Images" /> Partner US
+                    <img src="../assets/Frame.svg" alt="Images" /> Partner US
                   </Link>
                 </li>
                 <li>
                   <Link to="/side/terms">
-                    <img src="assets/Frame.svg" alt="Images" /> Terms and
+                    <img src="../assets/Frame.svg" alt="Images" /> Terms and
                     Conditions
                   </Link>
                 </li>
                 <li>
                   <Link to="/side/policy">
-                    <img src="assets/Frame.svg" alt="Images" /> Privacy Policy
+                    <img src="../assets/Frame.svg" alt="Images" /> Privacy
+                    Policy
                   </Link>
                 </li>
                 <li>
                   <Link to="/side/contact">
-                    <img src="assets/Frame.svg" alt="Images" /> Contact Us
+                    <img src="../assets/Frame.svg" alt="Images" /> Contact Us
                   </Link>
                 </li>
                 <li>
                   <Link to="/login">
-                    <img src="assets/Frame.svg" alt="Images" /> Login
+                    <img src="../assets/Frame.svg" alt="Images" /> Login
                   </Link>
                 </li>
               </ul>
@@ -80,26 +81,27 @@ function SideMenu() {
 const BackButton = () => {
   return (
     <Link to="..">
-      <Button className={classes.toggle} >
-        <img src="assets/back.svg" />
+      <Button className={classes.toggle}>
+        <img src="../../assets/back.svg" />
       </Button>
     </Link>
   );
 };
 
 const MainNavigation = ({ start, title }) => {
+  const totalscore = useSelector((state) => state.store.totalscore);
   return (
     <header className={classes.header}>
       {!start && <SideMenu />}
       {start && <BackButton />}
       <h3 className={classes.title}>
-        {!start && <img src="assets/logo.png" width="80%" />}
+        {!start && <img src="../assets/logo.png" width="80%" />}
         {start && title}
       </h3>
 
       <div className={classes.score}>
-        <img src="assets/scoin.png" />
-        <span>200</span>Coins
+        <img src="../../assets/scoin.png" />
+        <span>{totalscore}</span>Coins
       </div>
     </header>
   );

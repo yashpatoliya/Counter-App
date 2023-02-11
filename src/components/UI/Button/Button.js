@@ -38,6 +38,7 @@ export const Button = (props) => {
     <button
       className={classes.button}
       type={props.type ? props.type : "button"}
+      {...props}
     >
          {props.children}
     </button>
