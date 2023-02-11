@@ -4,7 +4,7 @@ const SideRoot = (props) => {
   console.log(props);
   return (
     <>
-        <MainNavigation start={true} />
+        <MainNavigation start={true} title='Side Pages'/>
         <main>
           <Outlet />
         </main>

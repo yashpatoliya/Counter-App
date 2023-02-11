@@ -1,32 +1,12 @@
 import { useState } from "react";
 import "./tabs.css";
 import QuizCard from "../../QuizCard/QuizCard";
+import { useSelector } from "react-redux";
 
 const Tabs = () => {
     const [toggleState, setToggleState] = useState(1);
+    const QUIZ = useSelector((state) => state.quiz.quizes);
 
-    const QUIZ = [
-        {
-            id: '01',
-            entry: 50,
-            live: true,
-            img: '../assets/cardicon.svg',
-            quiz: 'English Grammer',
-            title: 'Play and Win 200,000',
-            announce: '03:00 PM',
-            userplaying: 588,
-        },
-        {
-            id: '02',
-            entry: 100,
-            live: false,
-            img: '../assets/cardicon.svg',
-            quiz: 'English Grammer',
-            title: 'Play and Win 300,000',
-            announce: '05:30 PM',
-            userplaying: 4388,
-        },
-    ];
 
     const toggleTab = (index) => {
         setToggleState(index);

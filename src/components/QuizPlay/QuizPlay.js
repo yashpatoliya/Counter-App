@@ -4,9 +4,14 @@ import { ButtonOrange, ButtonOutline } from "../UI/Button/Button";
 import classes from "./QuizPlay.module.css";
 import Ads from "../UI/Ads/Ads";
 import { Link } from "react-router-dom";
+import {useDispatch} from 'react-redux';
+import { quizAction } from '../../store/quizSlice';
 
 const QuizPlay = () => {
   const {quizId} = useParams();
+  const dispatch = useDispatch();
+
+
 
   return (
     <>
