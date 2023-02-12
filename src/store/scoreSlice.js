@@ -16,6 +16,10 @@ const scoreSlice = createSlice({
             };
             state.items.push(obj);
             state.totalscore = action.payload.totalscore;
+        },
+        EntryCoinsHandler(state, action){
+            state.totalscore = state.totalscore - action.payload.entry;
+            console.log(state.totalscore)
         }
     }
 })

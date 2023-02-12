@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-
 const quizSlice = createSlice({
   name: 'quizes',
   initialState: {
@@ -17,7 +16,7 @@ const quizSlice = createSlice({
         score: 0,
         result: {
           trueAns: 0,
-          falseAns: 0
+          falseAns: 0,
         },
         questions: [
           {
@@ -130,7 +129,7 @@ const quizSlice = createSlice({
         ],
       },
     ],
-    currectQuiz: {
+    currentQuiz: {
       quiz: {
         id: '01',
         name: "English Grammar",
@@ -147,84 +146,119 @@ const quizSlice = createSlice({
         },
         questions: [
           {
-            question: "What is related to the earthquake?",
+            number: 1,
+            title: "What is related to the earthquake?",
             options: [
               {
-                opt: "Weighing Scale",
+                value: "Weighing Scale", isCorrect: true,
               },
               {
-                opt: "Richter Scale",
+                value: "Richter Scale", isCorrect: false,
               },
               {
-                opt: "Matric Scale",
+                value: "Matric Scale", isCorrect: false,
               },
             ],
-            answer: "Richter Scale",
           },
           {
-            question: "What is related to the second?",
+            number: 2,
+            title: "What is related to the earthquake?",
             options: [
               {
-                opt: "Weighing Scale",
+                value: "Weighing Scale", isCorrect: false,
               },
               {
-                opt: "Richter Scale",
+                value: "Richter Scale", isCorrect: true,
               },
               {
-                opt: "Matric Scale",
+                value: "Matric Scale", isCorrect: false,
               },
             ],
-            answer: "Richter Scale",
           },
           {
-            question: "What is related to the third?",
+            number: 3,
+            title: "What is related to the earthquake?",
             options: [
               {
-                opt: "Weighing Scale",
+                value: "Weighing Scale", isCorrect: false,
               },
               {
-                opt: "Richter Scale",
+                value: "Richter Scale", isCorrect: false,
               },
               {
-                opt: "Matric Scale",
+                value: "Matric Scale", isCorrect: true,
               },
             ],
-            answer: "Richter Scale",
           },
         ],
       },
       question: {
-        question: "What is related to the earthquake?",
+        number: 1,
+        title: "What is related to the earthquake?",
         options: [
           {
-            opt: "Weighing Scale",
+            value: "Weighing Scale",
+            isCorrect: true,
           },
           {
-            opt: "Richter Scale",
+            value: "Richter Scale",
+            isCorrect: false,
           },
           {
-            opt: "Matric Scale",
+            value: "Matric Scale",
+            isCorrect: false,
           },
         ],
-        answer: "Richter Scale",
       },
-    }
+    },
+    history: [],
   },
   reducers: {
     playQuize: (state, action) => {
       let id = action.payload.id;
       for (let i in state.quizes) {
-        if (state.quizes == id) {
+        if (state.quizes === id) {
           let obj = { ...state.quizes[i] };
-          state.currectQuiz.quiz = { ...obj };
-          let curquestion = state.currectQuiz.quiz.questions[0]
-          state.currectQuiz.question = { ...curquestion };
+          state.currentQuiz.quiz = { ...obj };
+          let curquestion = state.currentQuiz.quiz.questions[0]
+          state.currentQuiz.question = { ...curquestion, number: 1 };
+          console.log(state.currentQuiz.quiz);
         }
       }
+    },
+    //number, ans
+    NextQuestion(state, action) {
+      let obj = action.payload;
+      let number = obj.number + 1;
+      if (state.currentQuiz.quiz.questions.length >= obj.number) {
+        if (obj.ans) {
+          state.currentQuiz.quiz.score += 50;
+          state.currentQuiz.quiz.result.trueAns += 1;
+        } else {
+          state.currentQuiz.quiz.score -= 20;
+          state.currentQuiz.quiz.result.falseAns += 1;
+        }
+        let allquestions = state.currentQuiz.quiz.questions;
+        allquestions.map(item => {
+          if (item.number === number) {
+            state.currentQuiz.question = item;
+            return true;
+          }
+        })
+      } else {
+        alert('finished quiz');
+      }
+    },
+
+    //add history
+    AddHistory(state, action){
+      let obj = { ...state.currentQuiz.quiz, date : action.payload.date , }
+      state.history.push(obj);
+      console.log(state.history)
     }
   }
 })
 
-export const quizAction = quizSlice.actions;
+export const quizActions = quizSlice.actions;
 
 export default quizSlice;

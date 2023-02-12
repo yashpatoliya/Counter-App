@@ -6,7 +6,7 @@ const QuizCard = (props) => {
   const CardHeder = (
     <>
       <h5>Entry:{props.entry}</h5>
-      <badge className={classes.badge}>
+      <div className={classes.badge}>
         {props.live ? (
           <ul>
             <li>Live</li>
@@ -14,7 +14,7 @@ const QuizCard = (props) => {
         ) : (
           ""
         )}
-      </badge>
+      </div>
     </>
   );
 

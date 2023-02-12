@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, useParams } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/pages/homepage';
 import QuizRoot from './components/pages/quizRoot';
@@ -15,82 +15,84 @@ import History from './components/History/History';
 import PartnerUs from './components/PartnerUs/PartnerUs';
 import Terms from './components/Terms/Terms';
 import Contact from './components/Contact/Contact';
+import { useSelector } from 'react-redux';
 
 const router = createBrowserRouter([
   {
-    path : '/',
+    path: '/',
     element: <RootLayout />,
     children: [
       {
-        path:'/',
-        index : true,
+        path: '/',
+        index: true,
         element: <HomePage />,
       },
       {
         path: '/quiz/:quizId',
-        element : <QuizRoot/>,
-        children : [
+        element: <QuizRoot />,
+        children: [
           {
-            index:true,
-            element:<QuizPlay/>
+            index: true,
+            element: <QuizPlay />,
+            
           },
         ]
       }
-      
+
     ],
   },
   {
-    path:'/side',
-    element: <SideRoot/>,
+    path: '/side',
+    element: <SideRoot />,
     children: [
       {
         path: 'quiz-rules',
-        element : <QuizRules/>
+        element: <QuizRules />
       },
       {
         path: 'history',
-        element : <History/>
+        element: <History />
       },
       {
         path: 'partnerus',
-        element : <PartnerUs/>
+        element: <PartnerUs />
       },
       {
         path: 'terms',
-        element : <Terms/>
+        element: <Terms />
       },
       {
         path: 'policy',
-        element : <Policy/>
+        element: <Policy />
       },
       {
         path: 'contact',
-        element : <Contact/>
+        element: <Contact />
       },
     ]
   },
   {
     path: '/quiz/:quizId/start',
-    element : <QuizStart/>,
-    children : [
+    element: <QuizStart />,
+    children: [
       {
-        index:true,
-        element:<QuizStart/>
+        index: true,
+        element: <QuizStart />
       },
-      
+
     ]
   },
   {
-    path:'/quiz/:quizId/play',
-    element:<QuizStarted/>
+    path: '/quiz/:quizId/play',
+    element: <QuizStarted />
   },
   {
-    path:'/login',
-    element : <LoginRoot/>,
-    children:[
+    path: '/login',
+    element: <LoginRoot />,
+    children: [
       {
-        index:true,
-        element:<LoginPage/>
+        index: true,
+        element: <LoginPage />
       }
     ]
   },
