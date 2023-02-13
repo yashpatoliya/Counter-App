@@ -14,6 +14,7 @@
 .header .toggle{
     background-color: transparent;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .header h3{
@@ -65,9 +66,10 @@ ul{
 }
 .close{
     display: block;
-    background-color: red;
     margin-left: auto;
+    background-color: transparent;
     padding: 10px;
+    cursor: pointer;
 }
 .profileImg{
     width: 100px;

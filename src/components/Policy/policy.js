@@ -4,7 +4,7 @@ import { ButtonOrange } from "../UI/Button/Button";
 import classes from "./policy.module.css";
 const Policy = () => {
   return (
-    <main>
+  <>
       <Ads />
       <Card>
         <img src="../assets/coins-lots.png" />
@@ -28,11 +28,11 @@ const Policy = () => {
         </li>
         <li>Played & trusted by over 40 million users</li>
       </ul>
-      <img src="assets/logo.png" className={classes.logo} />
+      <img src="../assets/logo.png" className={classes.logo} />
       <h4 className={classes.logodiscription}>
-        Play Quizzes and win <img src="../assets/india.png" />
+        Play Quizzes and win <img src="../../assets/india.png" />
       </h4>
-    </main>
+      </>
   );
 };
 export default Policy;

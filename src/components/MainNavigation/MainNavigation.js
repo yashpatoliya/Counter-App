@@ -21,7 +21,7 @@ function SideMenu(props) {
           <div className={classes.side}>
             <div className={classes.profile}>
               <button onClick={toggle} className={classes.close}>
-                <img src="../assets/toggle.png" alt="Images" />
+                <img src="../assets/close.svg" alt="Images" />
               </button>
               <img
                 src="../assets/Ellipse 4.svg"

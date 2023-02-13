@@ -56,10 +56,21 @@ const Tabs = () => {
                 >
                     <h2>IPL Cricket Contest</h2>
                     <hr />
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-                        voluptatum qui adipisci.
-                    </p>
+                    {
+                        QUIZ.map((item) =>
+                            <QuizCard
+                                key={item.id}
+                                id={item.id}
+                                entry={item.entry}
+                                live={item.live}
+                                img={item.img}
+                                quiz={item.quiz}
+                                title={item.title}
+                                announce={item.announce}
+                                userplaying={item.userplaying}
+                            />
+                        )
+                    }
                 </div>
             </div>
         </div>
