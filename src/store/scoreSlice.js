@@ -20,7 +20,11 @@ const scoreSlice = createSlice({
         EntryCoinsHandler(state, action){
             state.totalscore = state.totalscore - action.payload.entry;
             console.log(state.totalscore)
-        }
+        },
+        WinCoinHandler(state, action){
+            let score = action.payload.score ? action.payload.score : 0;
+            state.totalscore = state.totalscore + score
+        }   
     }
 })
 

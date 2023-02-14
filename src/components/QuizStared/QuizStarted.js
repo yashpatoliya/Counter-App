@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { quizActions } from "../../store/quizSlice";
+import { scoreActions } from "../../store/scoreSlice";
 
 const QuizStarted = (props) => {
   const [number, setNumber] = useState(1);
@@ -31,6 +32,7 @@ const QuizStarted = (props) => {
       dispatch(quizActions.NextQuestion({ number: number, ans: isCorrect }))
       if (quiz.questions.length == number){
         dispatch(quizActions.AddHistory({date : Date.now()}))
+        dispatch(scoreActions.WinCoinHandler({score : quiz.win}))
         navigate('/side/history');
       } 
       setSelectedOption(null);

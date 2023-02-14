@@ -16,11 +16,13 @@ import PartnerUs from './components/PartnerUs/PartnerUs';
 import Terms from './components/Terms/Terms';
 import Contact from './components/Contact/Contact';
 import { useSelector } from 'react-redux';
+import QuizScore from './components/QuizScore/QuizScore';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    errorElement : 'error found',
     children: [
       {
         path: '/',
@@ -30,6 +32,7 @@ const router = createBrowserRouter([
       {
         path: '/quiz/:quizId',
         element: <QuizRoot />,
+        errorElement : 'error found',
         children: [
           {
             index: true,
@@ -44,36 +47,41 @@ const router = createBrowserRouter([
   {
     path: '/side',
     element: <SideRoot />,
+    errorElement : 'error found',
     children: [
       {
         path: 'quiz-rules',
-        element: <QuizRules />
+        element: <QuizRules />,
       },
       {
         path: 'history',
-        element: <History />
+        element: <History />,
       },
       {
         path: 'partnerus',
-        element: <PartnerUs />
+        element: <PartnerUs />,
       },
       {
         path: 'terms',
-        element: <Terms />
+        element: <Terms />,
       },
       {
         path: 'policy',
-        element: <Policy />
+        element: <Policy />,
       },
       {
         path: 'contact',
-        element: <Contact />
+        element: <Contact />,
+      },{
+        path : 'quizscore',
+        element : <QuizScore/>,
       },
     ]
   },
   {
     path: '/quiz/:quizId/start',
     element: <QuizStart />,
+    errorElement : 'error found',
     children: [
       {
         index: true,
@@ -84,11 +92,13 @@ const router = createBrowserRouter([
   },
   {
     path: '/quiz/:quizId/play',
-    element: <QuizStarted />
+    element: <QuizStarted />,
+    errorElement : 'error found',
   },
   {
     path: '/login',
     element: <LoginRoot />,
+    errorElement : 'error found',
     children: [
       {
         index: true,

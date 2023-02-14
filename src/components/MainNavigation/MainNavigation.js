@@ -15,8 +15,8 @@ function SideMenu(props) {
       <Button className={classes.toggle} onClick={toggle}>
         <img src="../assets/toggle.png" />
       </Button>
-
       {show && (
+     
         <div className={classes.bgbox}>
           <div className={classes.side}>
             <div className={classes.profile}>
@@ -24,7 +24,7 @@ function SideMenu(props) {
                 <img src="../assets/close.svg" alt="Images" />
               </button>
               <img
-                src="../assets/Ellipse 4.svg"
+                src="../assets/profile.svg"
                 alt="Images"
                 className={classes.profileImg}
               />
@@ -74,6 +74,7 @@ function SideMenu(props) {
             </div>
           </div>
         </div>
+  
       )}
     </>
   );

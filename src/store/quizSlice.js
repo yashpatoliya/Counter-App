@@ -9,6 +9,7 @@ const quizSlice = createSlice({
         name: "English Grammar",
         img: '../assets/cardicon.svg',
         entry: 50,
+        win : 1000,
         live: true,
         title: 'Play and Win 200,000',
         announce: '03:00 PM',
@@ -20,49 +21,49 @@ const quizSlice = createSlice({
         },
         questions: [
           {
-            question: "What is related to the earthquake?",
+            number: 1,
+            title: "What is related to the earthquake?",
             options: [
               {
-                opt: "Weighing Scale",
+                value: "Weighing Scale", isCorrect: true,
               },
               {
-                opt: "Richter Scale",
+                value: "Richter Scale", isCorrect: false,
               },
               {
-                opt: "Matric Scale",
+                value: "Matric Scale", isCorrect: false,
               },
             ],
-            answer: "Richter Scale",
           },
           {
-            question: "What is related to the second?",
+            number: 2,
+            title: "What is related to the earthquake?",
             options: [
               {
-                opt: "Weighing Scale",
+                value: "Weighing Scale", isCorrect: false,
               },
               {
-                opt: "Richter Scale",
+                value: "Richter Scale", isCorrect: true,
               },
               {
-                opt: "Matric Scale",
+                value: "Matric Scale", isCorrect: false,
               },
             ],
-            answer: "Richter Scale",
           },
           {
-            question: "What is related to the third?",
+            number: 3,
+            title: "What is related to the earthquake?",
             options: [
               {
-                opt: "Weighing Scale",
+                value: "Weighing Scale", isCorrect: false,
               },
               {
-                opt: "Richter Scale",
+                value: "Richter Scale", isCorrect: false,
               },
               {
-                opt: "Matric Scale",
+                value: "Matric Scale", isCorrect: true,
               },
             ],
-            answer: "Richter Scale",
           },
         ],
       },
@@ -71,6 +72,7 @@ const quizSlice = createSlice({
         name: "English Spelling",
         img: '../assets/cardicon.svg',
         entry: 100,
+        win : 2000,
         live: false,
         title: 'Play and Win 100,000',
         announce: '05:00 PM',
@@ -82,49 +84,49 @@ const quizSlice = createSlice({
         },
         questions: [
           {
-            question: "What is related to the earthquake?",
+            number: 1,
+            title: "What is related to the earthquake?",
             options: [
               {
-                opt: "Weighing Scale",
+                value: "Weighing Scale", isCorrect: true,
               },
               {
-                opt: "Richter Scale",
+                value: "Richter Scale", isCorrect: false,
               },
               {
-                opt: "Matric Scale",
+                value: "Matric Scale", isCorrect: false,
               },
             ],
-            answer: "Richter Scale",
           },
           {
-            question: "What is related to the second?",
+            number: 2,
+            title: "What is related to the earthquake?",
             options: [
               {
-                opt: "Weighing Scale",
+                value: "Weighing Scale", isCorrect: false,
               },
               {
-                opt: "Richter Scale",
+                value: "Richter Scale", isCorrect: true,
               },
               {
-                opt: "Matric Scale",
+                value: "Matric Scale", isCorrect: false,
               },
             ],
-            answer: "Richter Scale",
           },
           {
-            question: "What is related to the third?",
+            number: 3,
+            title: "What is related to the earthquake?",
             options: [
               {
-                opt: "Weighing Scale",
+                value: "Weighing Scale", isCorrect: false,
               },
               {
-                opt: "Richter Scale",
+                value: "Richter Scale", isCorrect: false,
               },
               {
-                opt: "Matric Scale",
+                value: "Matric Scale", isCorrect: true,
               },
             ],
-            answer: "Richter Scale",
           },
         ],
       },
@@ -135,6 +137,7 @@ const quizSlice = createSlice({
         name: "English Grammar",
         img: '../assets/cardicon.svg',
         entry: 50,
+        win: 1000,
         live: true,
         title: 'Play and Win 200,000',
         announce: '03:00 PM',
@@ -254,7 +257,6 @@ const quizSlice = createSlice({
     AddHistory(state, action){
       let obj = { ...state.currentQuiz.quiz, date : action.payload.date , }
       state.history.push(obj);
-      console.log(state.history)
     }
   }
 })

@@ -33,7 +33,16 @@
     display: flex;
     align-items: center;
 }
-.description label{
+.description .earnd{
+    background-color: #C1FFEF;
+    color: #000000;
+    font-weight: 300;
+    padding: 3px 5px;
+    margin-right: 5px;
+    font-size: 14px;
+    border-radius: 7px;
+}
+.description .paid{
     background-color: #C1FFEF;
     color: #000000;
     font-weight: 300;

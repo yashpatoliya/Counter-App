@@ -1,0 +1,68 @@
+
+.d-flex{
+    display: flex;
+}
+.book_image img {
+    margin: 0 auto;
+    display: block;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 5px;
+}
+.book_image p, h3{
+    margin-top: 10px;
+    color: #fff;
+    text-align: center;
+}
+.book_image h6{
+    margin-top: 5px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.box{
+    width:300px;
+    height: 134px;
+    background-color: #fff;
+    margin: 0 auto;
+    border-radius: 18px;
+    padding: 20px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box div p{
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+}
+.box div h1{
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 75px;
+    text-align: center;
+}
+.winner_rank{
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 20px;
+}
+.about_w p{
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+}
+.about_w h4 {
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 33px;
+}
+.line{
+    border-left: 1px solid #fff;
+}
