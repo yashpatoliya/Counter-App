@@ -5,6 +5,7 @@ export const ButtonOrange = (props) => {
     <button
     className={classes.buttonOrange}
       type={props.type ? props.type : "button"}
+      {...props}
     >
       {props.children}
     </button>
@@ -16,6 +17,7 @@ export const ButtonOrangeOutline = (props) => {
     <button
     className={classes.buttonOutline}
       type={props.type ? props.type : "button"}
+      {...props}
     >
       {props.children}
     </button>
@@ -27,6 +29,7 @@ export const ButtonOutline = (props) => {
     <button
     className={classes.buttonFilled}
       type={props.type ? props.type : "button"}
+      {...props}
     >
       {props.children}
     </button>
