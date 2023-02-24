@@ -54,8 +54,6 @@ const Tabs = () => {
                 <div
                     className={toggleState === 2 ? "content  active-content" : "content"}
                 >
-                    <h2>IPL Cricket Contest</h2>
-                    <hr />
                     {
                         QUIZ.map((item) =>
                             <QuizCard

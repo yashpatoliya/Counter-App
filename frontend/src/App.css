@@ -1,14 +1,16 @@
 .container{
-  max-width: 360px;
-  min-height: 100%;
+  max-width: 420px;
+  min-height: 100vh;
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.60);
+  background: #000031;
   background-blend-mode: multiply;
   background-image: url(../public/assets/background.png);
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover 100%;
   position: relative;
+  overflow: hidden !important;
 }
 .container main {
   padding: 30px 15px;

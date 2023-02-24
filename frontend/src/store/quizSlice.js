@@ -127,29 +127,8 @@ const quizSlice = createSlice({
                 value: "Matric Scale", isCorrect: true,
               },
             ],
-          },
-        ],
-      },
-    ],
-    currentQuiz: {
-      quiz: {
-        id: '01',
-        name: "English Grammar",
-        img: '../assets/cardicon.svg',
-        entry: 50,
-        win: 1000,
-        live: true,
-        title: 'Play and Win 200,000',
-        announce: '03:00 PM',
-        userplaying: 588,
-        score: 0,
-        result: {
-          trueAns: 0,
-          falseAns: 0
-        },
-        questions: [
-          {
-            number: 1,
+          },{
+            number: 4,
             title: "What is related to the earthquake?",
             options: [
               {
@@ -164,7 +143,7 @@ const quizSlice = createSlice({
             ],
           },
           {
-            number: 2,
+            number: 5,
             title: "What is related to the earthquake?",
             options: [
               {
@@ -179,7 +158,7 @@ const quizSlice = createSlice({
             ],
           },
           {
-            number: 3,
+            number: 6,
             title: "What is related to the earthquake?",
             options: [
               {
@@ -195,39 +174,25 @@ const quizSlice = createSlice({
           },
         ],
       },
-      question: {
-        number: 1,
-        title: "What is related to the earthquake?",
-        options: [
-          {
-            value: "Weighing Scale",
-            isCorrect: true,
-          },
-          {
-            value: "Richter Scale",
-            isCorrect: false,
-          },
-          {
-            value: "Matric Scale",
-            isCorrect: false,
-          },
-        ],
-      },
+    ],
+    currentQuiz: {
+      quiz: {},
+      question: {},
     },
     history: [],
   },
   reducers: {
     playQuize: (state, action) => {
-      let id = action.payload.id;
-      for (let i in state.quizes) {
-        if (state.quizes === id) {
-          let obj = { ...state.quizes[i] };
-          state.currentQuiz.quiz = { ...obj };
-          let curquestion = state.currentQuiz.quiz.questions[0]
-          state.currentQuiz.question = { ...curquestion, number: 1 };
-          console.log(state.currentQuiz.quiz);
+      let quizId = action.payload.id;
+      let fatched = state.quizes;
+      for (let i in fatched) {
+        if (fatched[i].id == quizId) {
+          let obj =  { ...fatched[i] }
+          state.currentQuiz.quiz = {...obj}
+          state.currentQuiz.question = state.currentQuiz.quiz.questions[0];
         }
       }
+
     },
     //number, ans
     NextQuestion(state, action) {

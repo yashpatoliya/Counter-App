@@ -7,20 +7,20 @@ import MainNavigation from "../MainNavigation/MainNavigation";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { scoreActions } from "../../store/scoreSlice";
-
+import { useEffect, useState } from "react";
+import { quizActions } from "../../store/quizSlice";
 const QuizStart = () => {
+  const [quiz, setQuiz] = useState({});
   const { quizId } = useParams();
-  
   const dispatch = useDispatch();
-  const quiz = useSelector((state) => {
-    let fatched = state.quiz.quizes;
-    for (let i in fatched) {
-      if (fatched[i].id == quizId) {
-        return { ...fatched[i] }
-      }
-    }
-  });
-  console.log(quiz);
+  const fatchQuiz = useSelector((state) => state.quiz.currentQuiz.quiz)
+  useEffect(()=>{
+    setQuiz(fatchQuiz)
+    console.log(quiz)
+    dispatch(quizActions.playQuize({id : quizId}))
+  },[])
+ 
+  
   const EntryCoinHandler = () => {
     dispatch(scoreActions.EntryCoinsHandler({ entry: quiz.entry }));
   }

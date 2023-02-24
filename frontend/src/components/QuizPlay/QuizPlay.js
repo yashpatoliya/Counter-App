@@ -12,16 +12,16 @@ const QuizPlay = () => {
   const dispatch = useDispatch();
 
   const quiz = useSelector((state) => {
-    let fatched = state.quiz.quizes;
-    for (let i in fatched) {
-      if (fatched[i].id == quizId) {
-        return { ...fatched[i] }
+      let fatched = state.quiz.quizes;
+      for (let i in fatched) {
+        if (fatched[i].id == quizId) {
+          return { ...fatched[i] }
+        }
       }
-    }
   });
- console.log(quiz)
+  
   const QuizOpenHandler = () => {
-    dispatch(quizActions.playQuize({id : quiz.id}))
+    dispatch(quizActions.playQuize({id : quizId}))
   }
 
   return (

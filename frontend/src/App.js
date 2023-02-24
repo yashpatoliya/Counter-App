@@ -1,43 +1,37 @@
 import { createBrowserRouter, RouterProvider, useParams } from 'react-router-dom';
 import './App.css';
-import HomePage from './components/pages/homepage';
+import React, { Suspense } from 'react';
 import QuizRoot from './components/pages/quizRoot';
-import LoginPage from './components/pages/loginpage';
 import RootLayout from './components/pages/root';
 import LoginRoot from './components/pages/LoginRoot';
-import Policy from './components/Policy/policy';
-import QuizPlay from './components/QuizPlay/QuizPlay';
-import QuizStart from './components/QuizStart/QuizStart';
-import QuizRules from './components/QuizRules/QuizRules';
 import SideRoot from './components/pages/SideRoot';
-import QuizStarted from './components/QuizStared/QuizStarted';
-import History from './components/History/History';
-import PartnerUs from './components/PartnerUs/PartnerUs';
-import Terms from './components/Terms/Terms';
-import Contact from './components/Contact/Contact';
-import { useSelector } from 'react-redux';
-import QuizScore from './components/QuizScore/QuizScore';
+const Home = React.lazy(() => import('./components/pages/homepage'))
+const QuizPlay = React.lazy(() => import('./components/QuizPlay/QuizPlay'))
+const QuizRules = React.lazy(() => import('./components/QuizRules/QuizRules'))
+const QuizStart = React.lazy(() => import('./components/QuizStart/QuizStart'));
+const QuizStarted = React.lazy(() => import('./components/QuizStared/QuizStarted'))
+
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
-    errorElement : 'error found',
+    errorElement: 'error found',
     children: [
       {
         path: '/',
         index: true,
-        element: <HomePage />,
+        element: <Home/>,
       },
       {
         path: '/quiz/:quizId',
         element: <QuizRoot />,
-        errorElement : 'error found',
+        errorElement: 'error found',
         children: [
           {
             index: true,
-            element: <QuizPlay />,
-            
+            element: <QuizPlay/>,
+
           },
         ]
       }
@@ -47,62 +41,55 @@ const router = createBrowserRouter([
   {
     path: '/side',
     element: <SideRoot />,
-    errorElement : 'error found',
+    errorElement: 'error found',
     children: [
       {
         path: 'quiz-rules',
-        element: <QuizRules />,
+        element: <QuizRules/>,
       },
       {
         path: 'history',
-        element: <History />,
+        element: React.lazy(() => import('./components/History/History')),
       },
       {
         path: 'partnerus',
-        element: <PartnerUs />,
+        element: React.lazy(() => import('./components/PartnerUs/PartnerUs')),
       },
       {
         path: 'terms',
-        element: <Terms />,
+        element: React.lazy(() => import('./components/Terms/Terms')),
       },
       {
         path: 'policy',
-        element: <Policy />,
+        element: React.lazy(() => import('./components/Policy/policy')),
       },
       {
         path: 'contact',
-        element: <Contact />,
-      },{
-        path : 'quizscore',
-        element : <QuizScore/>,
+        element: React.lazy(() => import('./components/Contact/Contact')),
+      }, {
+        path: 'quizscore',
+        element: React.lazy(() => import('./components/QuizScore/QuizScore')),
       },
     ]
   },
   {
     path: '/quiz/:quizId/start',
-    element: <QuizStart />,
-    errorElement : 'error found',
-    children: [
-      {
-        index: true,
-        element: <QuizStart />
-      },
-
-    ]
+    element: <QuizStart/>,
+    errorElement: 'error found',
   },
   {
     path: '/quiz/:quizId/play',
-    element: <QuizStarted />,
-    errorElement : 'error found',
+    element: <QuizStarted/>,
+    errorElement: 'error found',
   },
   {
     path: '/login',
     element: <LoginRoot />,
-    errorElement : 'error found',
+    errorElement: 'error found',
     children: [
       {
         index: true,
-        element: <LoginPage />
+        element: React.lazy(() => import('./components/Login/login'))
       }
     ]
   },
@@ -111,7 +98,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="container">
-      <RouterProvider router={router} />
+      <Suspense fallback={<div> Please Wait... </div>} >
+        <RouterProvider router={router} />
+      </Suspense>
     </div>
   );
 }
