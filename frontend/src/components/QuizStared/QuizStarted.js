@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { quizActions } from "../../store/quizSlice";
 import { scoreActions } from "../../store/scoreSlice";
+import moment from "moment/moment";
 
 const QuizStarted = (props) => {
   const [number, setNumber] = useState(1);
@@ -15,11 +16,13 @@ const QuizStarted = (props) => {
 
   const quiz = useSelector((state) => state.quiz.currentQuiz.quiz);
   const curquiz = useSelector((state) => state.quiz.currentQuiz.question);
-  const length = useSelector((state)=> state.quiz.currentQuiz.quiz.questions.length);
+  const length = useSelector((state) => state.quiz.currentQuiz.quiz.questions.length);
   console.log(quiz.questions)
   useEffect(() => {
     counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
     if (counter == 0) {
+      dispatch(scoreActions.AddHistory({quiz, date: moment().format('MMMM Do YYYY')}))
+      dispatch(scoreActions.WinCoinHandler({ score: quiz.win }))
       navigate("/side/history");
     };
   }, [counter]);
@@ -27,16 +30,16 @@ const QuizStarted = (props) => {
 
   const handleOptionClick = ({ option, isCorrect, number }) => {
     setSelectedOption(option);
-    
-    setTimeout(()=>{
+
+    setTimeout(() => {
       dispatch(quizActions.NextQuestion({ number: number, ans: isCorrect }))
-      if (quiz.questions.length == number){
-        dispatch(quizActions.AddHistory({date : Date.now()}))
-        dispatch(scoreActions.WinCoinHandler({score : quiz.win}))
+      if (quiz.questions.length == number) {
+        dispatch(scoreActions.AddHistory({quiz, date: moment().format('MMMM Do YYYY')}))
+        dispatch(scoreActions.WinCoinHandler({ score: quiz.win }))
         navigate('/side/history');
-      } 
+      }
       setSelectedOption(null);
-    },1000)
+    }, 700)
   };
 
   const options = curquiz.options;

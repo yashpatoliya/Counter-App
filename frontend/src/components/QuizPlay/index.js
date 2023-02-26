@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Card from "../UI/BlurCard/Card";
 import { ButtonOrange, ButtonOutline } from "../UI/Button/Button";
 import classes from "./QuizPlay.module.css";
@@ -6,22 +6,17 @@ import Ads from "../UI/Ads/Ads";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { quizActions } from "../../store/quizSlice";
+import axios from "axios";
 
 const QuizPlay = () => {
   const { quizId } = useParams();
   const dispatch = useDispatch();
+  const quiz = useLoaderData()
+ 
 
-  const quiz = useSelector((state) => {
-      let fatched = state.quiz.quizes;
-      for (let i in fatched) {
-        if (fatched[i].id == quizId) {
-          return { ...fatched[i] }
-        }
-      }
-  });
-  
+
   const QuizOpenHandler = () => {
-    dispatch(quizActions.playQuize({id : quizId}))
+    dispatch(quizActions.playQuize(quiz))
   }
 
   return (
@@ -58,3 +53,11 @@ const QuizPlay = () => {
 export default QuizPlay;
 
 
+// export const Loader = async () => {
+//   const { quizId } = useParams();
+//   console.log(quizId)
+//   let data = await axios.get("http://localhost:8080/quizes/" + quizId);
+//   let quizes = await data.data.response;
+
+//   return quizes;
+// }

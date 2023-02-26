@@ -21,3 +21,9 @@
     font-weight: 300;
     padding: 3px 0 10px;
 }
+.rules{
+    display: block;
+    color: white;
+    text-align: center !important;
+    margin: 10px auto;
+}

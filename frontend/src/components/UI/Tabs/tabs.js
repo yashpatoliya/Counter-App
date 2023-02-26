@@ -1,13 +1,80 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./tabs.css";
 import QuizCard from "../../QuizCard/QuizCard";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import { useLoaderData } from "react-router-dom";
 
 const Tabs = () => {
     const [toggleState, setToggleState] = useState(1);
-    const QUIZ = useSelector((state) => state.quiz.quizes);
+    const QUIZ = useLoaderData();
+    // const QUIZ = [
+    //     {
+    //         id: '01',
+    //         name: "English Grammar",
+    //         img: '../assets/cardicon.svg',
+    //         entry: 50,
+    //         win: 1000,
+    //         live: true,
+    //         title: 'Play and Win 200,000',
+    //         announce: '03:00 PM',
+    //         userplaying: 588,
+    //         score: 0,
+    //         result: {
+    //             trueAns: 0,
+    //             falseAns: 0,
+    //         },
+    //         questions: [
+    //             {
+    //                 number: 1,
+    //                 title: "What is related to the earthquake?",
+    //                 options: [
+    //                     {
+    //                         value: "Weighing Scale", isCorrect: true,
+    //                     },
+    //                     {
+    //                         value: "Richter Scale", isCorrect: false,
+    //                     },
+    //                     {
+    //                         value: "Matric Scale", isCorrect: false,
+    //                     },
+    //                 ],
+    //             },
+    //             {
+    //                 number: 2,
+    //                 title: "What is related to the earthquake?",
+    //                 options: [
+    //                     {
+    //                         value: "Weighing Scale", isCorrect: false,
+    //                     },
+    //                     {
+    //                         value: "Richter Scale", isCorrect: true,
+    //                     },
+    //                     {
+    //                         value: "Matric Scale", isCorrect: false,
+    //                     },
+    //                 ],
+    //             },
+    //             {
+    //                 number: 3,
+    //                 title: "What is related to the earthquake?",
+    //                 options: [
+    //                     {
+    //                         value: "Weighing Scale", isCorrect: false,
+    //                     },
+    //                     {
+    //                         value: "Richter Scale", isCorrect: false,
+    //                     },
+    //                     {
+    //                         value: "Matric Scale", isCorrect: true,
+    //                     },
+    //                 ],
+    //             },
+    //         ],
+    //     },
+    // ]
 
-
+ 
     const toggleTab = (index) => {
         setToggleState(index);
     };

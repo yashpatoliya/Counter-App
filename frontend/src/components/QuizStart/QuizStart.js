@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Card from "../UI/BlurCard/Card";
 import { ButtonOrange } from "../UI/Button/Button";
 import classes from "./QuizStart.module.css";
@@ -10,14 +10,12 @@ import { scoreActions } from "../../store/scoreSlice";
 import { useEffect, useState } from "react";
 import { quizActions } from "../../store/quizSlice";
 const QuizStart = () => {
-  const [quiz, setQuiz] = useState({});
   const { quizId } = useParams();
   const dispatch = useDispatch();
-  const fatchQuiz = useSelector((state) => state.quiz.currentQuiz.quiz)
+  const quiz = useLoaderData()
+
   useEffect(()=>{
-    setQuiz(fatchQuiz)
-    console.log(quiz)
-    dispatch(quizActions.playQuize({id : quizId}))
+    dispatch(quizActions.playQuize(quiz))
   },[])
  
   
@@ -49,7 +47,7 @@ const QuizStart = () => {
           </div>
         </Card>
         <Ads />
-        <Link to='/side/quiz-rules'>Quiz Rules</Link>
+        <Link to='/side/quiz-rules' className={classes.rules}>Quiz Rules</Link>
       </main>
     </>
   );

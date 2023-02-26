@@ -1,36 +1,58 @@
 import { createBrowserRouter, RouterProvider, useParams } from 'react-router-dom';
 import './App.css';
-import React, { Suspense } from 'react';
+import React, { Suspense , lazy} from 'react';
 import QuizRoot from './components/pages/quizRoot';
 import RootLayout from './components/pages/root';
 import LoginRoot from './components/pages/LoginRoot';
 import SideRoot from './components/pages/SideRoot';
-const Home = React.lazy(() => import('./components/pages/homepage'))
-const QuizPlay = React.lazy(() => import('./components/QuizPlay/QuizPlay'))
-const QuizRules = React.lazy(() => import('./components/QuizRules/QuizRules'))
-const QuizStart = React.lazy(() => import('./components/QuizStart/QuizStart'));
-const QuizStarted = React.lazy(() => import('./components/QuizStared/QuizStarted'))
+// import {Loader as PlayLoader } from "./components/QuizPlay/QuizPlay";
+import axios from 'axios'
+const Home = lazy(() => import('./components/pages/homepage'))
+const QuizPlay = lazy(() => import('./components/QuizPlay'))
+const QuizRules = lazy(() => import('./components/QuizRules/QuizRules'))
+const QuizStart = lazy(() => import('./components/QuizStart/QuizStart'));
+const QuizStarted = lazy(() => import('./components/QuizStared/QuizStarted'))
+const History = lazy(() => import('./components/History/History'));
+const Partnerus = lazy(() => import('./components/PartnerUs/PartnerUs'));
+const Terms = lazy(() => import('./components/Terms/Terms'));
+const Policy = lazy(() => import('./components/Policy/policy'));
+const Contact = lazy(() => import('./components/Contact/Contact'));
+const QuizScore = lazy(() => import('./components/QuizScore/QuizScore'));
+const Login = lazy(() => import('./components/Login/login'));
+// const Spinner = lazy(() => import('./components/Spinner/Spinner'));
+const Error = lazy(()=> import('./components/Error'));
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
-    errorElement: 'error found',
+    errorElement: <Error/>,
     children: [
       {
+        id : 'quiz-data',
         path: '/',
         index: true,
-        element: <Home/>,
+        element: <Home />,
+        loader : async()=> {
+          let data = await axios.get("http://localhost:8080/quizes");
+          let quizes = await data.data.response;
+          console.log(quizes)
+          return quizes;
+        },
       },
       {
         path: '/quiz/:quizId',
         element: <QuizRoot />,
-        errorElement: 'error found',
         children: [
           {
             index: true,
-            element: <QuizPlay/>,
+            element: <QuizPlay />,
+            loader : async({params})=> {
+              let data = await axios.get("http://localhost:8080/quizes/"+params.quizId);
+              let quizes = await data.data.response;
+              return quizes;
+            },
 
           },
         ]
@@ -41,64 +63,71 @@ const router = createBrowserRouter([
   {
     path: '/side',
     element: <SideRoot />,
-    errorElement: 'error found',
+    errorElement: <Error/>,
     children: [
       {
         path: 'quiz-rules',
-        element: <QuizRules/>,
+        element: <QuizRules />,
       },
       {
         path: 'history',
-        element: React.lazy(() => import('./components/History/History')),
+        element: <History />,
       },
       {
         path: 'partnerus',
-        element: React.lazy(() => import('./components/PartnerUs/PartnerUs')),
+        element: <Partnerus />,
       },
       {
         path: 'terms',
-        element: React.lazy(() => import('./components/Terms/Terms')),
+        element: <Terms />,
       },
       {
         path: 'policy',
-        element: React.lazy(() => import('./components/Policy/policy')),
+        element: <Policy />,
       },
       {
         path: 'contact',
-        element: React.lazy(() => import('./components/Contact/Contact')),
+        element: <Contact />,
       }, {
         path: 'quizscore',
-        element: React.lazy(() => import('./components/QuizScore/QuizScore')),
+        element: <QuizScore />,
       },
     ]
   },
   {
     path: '/quiz/:quizId/start',
-    element: <QuizStart/>,
-    errorElement: 'error found',
+    element: <QuizStart />,
+    errorElement: <Error/>,
+    loader : async({params})=> {
+      let data = await axios.get("http://localhost:8080/quizes/"+params.quizId);
+      let quizes = await data.data.response;
+      return quizes;
+    },
   },
   {
     path: '/quiz/:quizId/play',
-    element: <QuizStarted/>,
-    errorElement: 'error found',
+    element: <QuizStarted />,
+    errorElement: <Error/>,
   },
   {
     path: '/login',
     element: <LoginRoot />,
-    errorElement: 'error found',
+    errorElement: <Error/>,
     children: [
       {
         index: true,
-        element: React.lazy(() => import('./components/Login/login'))
+        element: <Login />
       }
     ]
   },
 ])
 
 function App() {
+
+
   return (
     <div className="container">
-      <Suspense fallback={<div> Please Wait... </div>} >
+      <Suspense fallback={<div>Loading... </div>} >
         <RouterProvider router={router} />
       </Suspense>
     </div>

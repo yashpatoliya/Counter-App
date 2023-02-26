@@ -1,14 +1,15 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import classes from "./History.module.css";
 
 const History = () => {
-  const history = useSelector((state) => state.quiz.history);
+  const history = useSelector((state) => state.store.history);
 
-  const quiz = useSelector((state) => state.quiz.history);
-  console.log(quiz);
   return (
     <div>
       {history.map((item) => (
+        <>
+        
         <div className={classes.card}>
           <div className={classes.cardicon}>
             <img src="../../assets/cardicon.svg" />
@@ -16,8 +17,8 @@ const History = () => {
           <div className={classes.cardbody}>
             <h4>{item.name}</h4>
             <div className={classes.description}>
-              <label className="earnd">Earnd</label>
-              <p>February 4th 2023</p>
+              <label className={item.result.trueAns > item.result.falseAns ? classes.earnd : classes.paid}>{item.result.trueAns > item.result.falseAns ? "Earnd" : "Paid"}</label>
+              <p>{item.date}</p>
             </div>
           </div>
           <div className={classes.coins}>
@@ -25,6 +26,7 @@ const History = () => {
             <span>{item.win}</span>
           </div>
         </div>
+        </>
       ))}
     </div>
   );

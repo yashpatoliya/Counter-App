@@ -3,28 +3,25 @@ import { createSlice } from '@reduxjs/toolkit';
 const scoreSlice = createSlice({
     name: 'score',
     initialState: {
-      items: [],
-      totalscore: 200,
+        history: [],
+        totalscore: 200,
     },
-    reducers:{
-        addHistory(state, action){
-            let obj = {
-                quiz : action.payload.name,
-                entry : action.payload.entry,
-                totalscore : action.payload.score,
-                date: Date.now(),
-            };
-            state.items.push(obj);
-            state.totalscore = action.payload.totalscore;
+    reducers: {
+        //add history
+        AddHistory(state, action) {
+            console.log(action.payload)
+            let obj = { ...action.payload.quiz, date: action.payload.date, }
+            state.history.push(obj);
+            console.log(state.history)
         },
-        EntryCoinsHandler(state, action){
+        EntryCoinsHandler(state, action) {
             state.totalscore = state.totalscore - action.payload.entry;
             console.log(state.totalscore)
         },
-        WinCoinHandler(state, action){
+        WinCoinHandler(state, action) {
             let score = action.payload.score ? action.payload.score : 0;
             state.totalscore = state.totalscore + score
-        }   
+        }
     }
 })
 
